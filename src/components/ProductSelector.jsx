@@ -192,9 +192,9 @@ const ProductSelector = () => {
 
                   <button
                     onClick={() => setStep(2)}
-                    className="w-full py-4 bg-text text-white font-bold text-lg rounded-xl hover:bg-text/90 transition-transform transform hover:scale-[1.02]"
+                    className="w-full py-4 bg-text text-white font-bold text-base sm:text-lg rounded-xl hover:bg-text/90 transition-transform transform hover:scale-[1.02] flex items-center justify-center gap-2"
                   >
-                    Weiter zum Gratis-Unterteil →
+                    <span className="whitespace-nowrap">Weiter zum Gratis-Unterteil</span> →
                   </button>
                 </div>
               </div>
@@ -327,12 +327,12 @@ const ProductSelector = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between items-end border-t border-text/10 pt-6 mb-8 mt-8">
+              <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-3 border-t border-text/10 pt-6 mb-8 mt-8">
                 <div>
-                  <div className="text-text/60 mb-1">Gesamtwert: <span className="line-through">84,95 €</span></div>
-                  <div className="text-3xl font-heading font-bold text-text">59,95 €</div>
+                  <div className="text-text/60 mb-1 whitespace-nowrap">Gesamtwert: <span className="line-through">84,95 €</span></div>
+                  <div className="text-3xl font-heading font-bold text-text whitespace-nowrap">59,95 €</div>
                 </div>
-                <div className="text-right text-sm text-green-700 font-bold bg-green-100 px-4 py-1.5 rounded-full ring-1 ring-green-200">
+                <div className="text-sm text-green-700 font-bold bg-green-100 px-4 py-1.5 rounded-full ring-1 ring-green-200 whitespace-nowrap self-start sm:self-auto">
                   Du sparst 29%
                 </div>
               </div>
@@ -340,10 +340,10 @@ const ProductSelector = () => {
               <div className="flex flex-col gap-4">
                 <button
                   onClick={handleCheckout}
-                  className="w-full py-5 bg-accent text-white text-xl font-bold rounded-2xl hover:bg-accent/90 transition-transform transform hover:scale-[1.02] shadow-xl shadow-accent/20 flex flex-col items-center justify-center leading-tight"
+                  className="w-full py-4 sm:py-5 bg-accent text-white font-bold rounded-2xl hover:bg-accent/90 transition-transform transform hover:scale-[1.02] shadow-xl shadow-accent/20 flex flex-col items-center justify-center leading-tight px-2"
                 >
-                  <span className="mb-1">Jetzt sicher zur Kasse →</span>
-                  <span className="text-xs font-normal text-white/80">inkl. Gratis Versand in 1-3 Tagen</span>
+                  <span className="mb-1 text-lg sm:text-xl whitespace-nowrap">Jetzt sicher zur Kasse →</span>
+                  <span className="text-[10px] sm:text-xs font-normal text-white/80 whitespace-nowrap">inkl. Gratis Versand in 1-3 Tagen</span>
                 </button>
                 <button onClick={() => setStep(1)} className="text-text/50 hover:text-text font-medium text-sm text-center transition-colors">
                   Bundle nochmal bearbeiten

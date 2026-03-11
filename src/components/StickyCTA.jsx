@@ -54,14 +54,14 @@ const StickyCTA = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
-          <div className="text-right flex flex-col items-end">
-            <span className="text-xs text-text/50 line-through">84,95 €</span>
-            <span className="font-bold text-lg md:text-xl text-text">59,95 €</span>
+        <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">
+          <div className="text-right flex flex-col items-end justify-center whitespace-nowrap">
+            <span className="text-[10px] md:text-xs text-text/50 line-through leading-none">84,95 €</span>
+            <span className="font-bold text-base md:text-xl text-text leading-tight mt-0.5">59,95 €</span>
           </div>
           <a 
             href="#bundle-selector" 
-            className="bg-accent hover:bg-accent/90 text-white font-bold py-3 md:py-3.5 px-6 rounded-xl shadow-lg transition-transform hover:scale-105 text-sm md:text-base whitespace-nowrap"
+            className="bg-accent hover:bg-accent/90 text-white font-bold py-2.5 md:py-3.5 px-4 md:px-6 rounded-xl shadow-lg transition-transform hover:scale-105 text-[13px] md:text-base whitespace-nowrap"
           >
             Stelle dein Bundle zusammen
           </a>
