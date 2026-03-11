@@ -27,7 +27,7 @@ const FooterCTA = () => {
       <div className="relative z-10 max-w-3xl mx-auto">
         
         <div className="mb-8 flex justify-center">
-           <img src="/images/Logo_Nosheer.png" alt="Nosheer Logo" className="h-10 filter invert brightness-0" />
+           <img src="./images/Logo_Nosheer.png" alt="Nosheer Logo" className="h-10 filter invert brightness-0" />
         </div>
 
         <div className="inline-block bg-accent px-4 py-1.5 rounded-md font-bold text-sm tracking-wider uppercase mb-8 shadow-[0_0_15px_rgba(166,61,64,0.5)]">

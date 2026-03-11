@@ -9,7 +9,7 @@ const Mechanism = () => {
         <div className="w-full lg:w-1/2 relative group">
           <div className="absolute inset-0 bg-accent/10 rounded-[2rem] transform rotate-3 scale-105 transition-transform group-hover:rotate-6"></div>
           <img 
-            src="/images/Bild_Frau_Anti_Cameltoe_Beige.png" 
+            src="./images/Bild_Frau_Anti_Cameltoe_Beige.png" 
             alt="Nahtlose Silhouette mit Anti-Cameltoe Technologie" 
             className="relative z-10 w-full rounded-[2rem] shadow-xl object-cover"
           />

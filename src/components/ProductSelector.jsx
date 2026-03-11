@@ -156,7 +156,7 @@ const ProductSelector = () => {
 
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="w-full md:w-1/2">
-                  <img src={`/images/Bild 1_Leggings_Top_${setColor}.png`} alt={`${setColor} Set`} className="w-full rounded-2xl object-cover aspect-[4/5] bg-background" />
+                  <img src={`./images/Bild 1_Leggings_Top_${setColor}.png`} alt={`${setColor} Set`} className="w-full rounded-2xl object-cover aspect-[4/5] bg-background" />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center">
                   <div className="flex justify-between items-center mb-3">
@@ -210,7 +210,7 @@ const ProductSelector = () => {
 
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="w-full md:w-1/2">
-                  <img src={`/images/${getBottomsImage()}`} alt={`${bottomStyle} ${bottomColor}`} className="w-full rounded-2xl object-cover aspect-[4/5] bg-background border border-text/5" />
+                  <img src={`./images/${getBottomsImage()}`} alt={`${bottomStyle} ${bottomColor}`} className="w-full rounded-2xl object-cover aspect-[4/5] bg-background border border-text/5" />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center">
 
@@ -276,7 +276,7 @@ const ProductSelector = () => {
                 <div className="flex justify-between items-center p-4 bg-background/50 border border-text/5 rounded-xl">
                   <div className="flex gap-4 items-center">
                     <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-text/10 bg-white shrink-0">
-                      <img src={`/images/Bild 1_Leggings_Top_${setColor}.png`} className="w-full h-full object-cover" alt="Performance Set" />
+                      <img src={`./images/Bild 1_Leggings_Top_${setColor}.png`} className="w-full h-full object-cover" alt="Performance Set" />
                     </div>
                     <div>
                       <h4 className="font-bold text-lg leading-tight">Performance Set</h4>
@@ -290,7 +290,7 @@ const ProductSelector = () => {
                 <div className="flex justify-between items-center p-4 bg-green-50/50 border border-green-200/50 rounded-xl">
                   <div className="flex gap-4 items-center">
                     <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-text/10 bg-white shrink-0">
-                      <img src={`/images/${getBottomsImage()}`} className="w-full h-full object-cover" alt="Gratis Unterteil" />
+                      <img src={`./images/${getBottomsImage()}`} className="w-full h-full object-cover" alt="Gratis Unterteil" />
                       <div className="absolute -bottom-1 -right-1 bg-green-500 text-white rounded-full p-1 border-2 border-white shadow-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clipRule="evenodd" /><path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z" /></svg>
                       </div>
@@ -310,7 +310,7 @@ const ProductSelector = () => {
                 <div className="flex justify-between items-center p-4 bg-green-50/50 border border-green-200/50 rounded-xl">
                   <div className="flex gap-4 items-center">
                     <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-text/10 bg-white p-2 shrink-0 flex items-center justify-center">
-                      <img src="/images/Bild_Shaker_pink.png" className="h-full object-contain" alt="Gratis Shaker" />
+                      <img src="./images/Bild_Shaker_pink.png" className="h-full object-contain" alt="Gratis Shaker" />
                       <div className="absolute -bottom-1 -right-1 bg-green-500 text-white rounded-full p-1 border-2 border-white shadow-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clipRule="evenodd" /><path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z" /></svg>
                       </div>
@@ -351,10 +351,10 @@ const ProductSelector = () => {
               </div>
 
               <div className="flex justify-center flex-wrap items-center gap-6 mt-6 opacity-60 grayscale transition-all hover:grayscale-0">
-                <img src="/images/Klarna.svg" className="h-6" alt="Klarna" />
+                <img src="./images/Klarna.svg" className="h-6" alt="Klarna" />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" className="h-6" alt="PayPal" />
-                <img src="/images/Visa.svg" className="h-6" alt="Visa" />
-                <img src="/images/Maestro.svg" className="h-6" alt="Maestro" />
+                <img src="./images/Visa.svg" className="h-6" alt="Visa" />
+                <img src="./images/Maestro.svg" className="h-6" alt="Maestro" />
               </div>
             </div>
           )}

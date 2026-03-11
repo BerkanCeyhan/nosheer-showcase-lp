@@ -50,7 +50,7 @@ const Technology = () => {
         <div className="w-full lg:w-1/2 relative group">
           <div className="absolute inset-0 bg-text/5 rounded-[2rem] transform -rotate-3 scale-105 transition-transform group-hover:-rotate-6"></div>
           <img 
-            src="/images/Bild 1_Leggings_Top_Samtrot.png" 
+            src="./images/Bild 1_Leggings_Top_Samtrot.png" 
             alt="Squat-Proof Performance Leggings" 
             className="relative z-10 w-full rounded-[2rem] shadow-xl object-cover"
           />

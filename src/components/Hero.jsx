@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="relative w-full min-h-[90vh] bg-background flex flex-col justify-center items-center text-center px-4 py-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/Models_Smiling_in_Camera.png" 
+          src="./images/Models_Smiling_in_Camera.png" 
           alt="Glückliche Frauen" 
           className="w-full h-full object-cover opacity-20"
         />

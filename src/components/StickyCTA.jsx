@@ -43,7 +43,7 @@ const StickyCTA = () => {
         {/* Left Side (Hidden on very small screens) */}
         <div className="hidden sm:flex items-center gap-4">
           <div className="w-12 h-12 rounded-lg bg-background overflow-hidden border border-text/10 flex-shrink-0">
-             <img src="/images/Bild_Anti_Cameltoe_Tanga_Schwarz.png" className="w-full h-full object-cover" alt="Nosheer Bundle" />
+             <img src="./images/Bild_Anti_Cameltoe_Tanga_Schwarz.png" className="w-full h-full object-cover" alt="Nosheer Bundle" />
           </div>
           <div>
             <div className="font-bold font-heading text-text leading-tight">NOSHEER Bestseller Bundle</div>
