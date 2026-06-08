@@ -95,7 +95,8 @@ const ProductSelector = () => {
 
   // State for Step 1
   const [setColor, setSetColor] = useState('Schwarz');
-  const [setSize, setSetSize] = useState('M');
+  const [leggingsSize, setLeggingsSize] = useState('M');
+  const [topSize, setTopSize] = useState('M');
 
   // State for Step 2
   const [bottomStyle, setBottomStyle] = useState('Tanga');
@@ -103,8 +104,8 @@ const ProductSelector = () => {
   const [bottomSize, setBottomSize] = useState('M');
 
   const handleCheckout = () => {
-    const leggingId = LEGGINGS_VARIANTS[setColor][setSize];
-    const topId = TOP_VARIANTS[setColor][setSize];
+    const leggingId = LEGGINGS_VARIANTS[setColor][leggingsSize];
+    const topId = TOP_VARIANTS[setColor][topSize];
 
     let bottomId;
     if (bottomStyle === 'Tanga') bottomId = TANGA_VARIANTS[bottomColor][bottomSize];
@@ -175,15 +176,30 @@ const ProductSelector = () => {
                   </div>
 
                   <div className="flex justify-between items-center mb-3">
-                    <label className="font-bold">Größe:</label>
+                    <label className="font-bold">Leggings Größe:</label>
                     <button onClick={() => setIsSizeGuideOpen(true)} className="text-sm font-medium text-accent underline hover:text-accent/80 transition-colors">Größentabelle</button>
+                  </div>
+                  <div className="flex gap-3 mb-6">
+                    {['S', 'M', 'L', 'XL'].map(size => (
+                      <button
+                        key={size}
+                        onClick={() => setLeggingsSize(size)}
+                        className={`flex-1 py-3 font-mono rounded-lg border transition-colors ${leggingsSize === size ? 'bg-text text-white border-text' : 'bg-transparent text-text border-text/20 hover:border-text/50'}`}
+                      >
+                        {size}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="flex justify-between items-center mb-3">
+                    <label className="font-bold">Top Größe:</label>
                   </div>
                   <div className="flex gap-3 mb-10">
                     {['S', 'M', 'L', 'XL'].map(size => (
                       <button
                         key={size}
-                        onClick={() => setSetSize(size)}
-                        className={`flex-1 py-3 font-mono rounded-lg border transition-colors ${setSize === size ? 'bg-text text-white border-text' : 'bg-transparent text-text border-text/20 hover:border-text/50'}`}
+                        onClick={() => setTopSize(size)}
+                        className={`flex-1 py-3 font-mono rounded-lg border transition-colors ${topSize === size ? 'bg-text text-white border-text' : 'bg-transparent text-text border-text/20 hover:border-text/50'}`}
                       >
                         {size}
                       </button>
@@ -280,7 +296,7 @@ const ProductSelector = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-lg leading-tight">Performance Set</h4>
-                      <p className="text-text/60 text-sm mt-0.5">{setColor} • Größe {setSize}</p>
+                      <p className="text-text/60 text-sm mt-0.5">{setColor} • Leggings {leggingsSize} / Top {topSize}</p>
                     </div>
                   </div>
                   <div className="font-bold text-lg whitespace-nowrap">59,95 €</div>
