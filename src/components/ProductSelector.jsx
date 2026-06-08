@@ -25,6 +25,11 @@ const SLIP_VARIANTS = {
 
 const SHAKER_ID = '56877036208393'; // Pink Shaker
 
+const OUT_OF_STOCK = new Set([
+  'Tanga-Schwarz-S',
+  'Tanga-Schwarz-M',
+]);
+
 const SizeGuideModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
   return (
@@ -101,7 +106,19 @@ const ProductSelector = () => {
   // State for Step 2
   const [bottomStyle, setBottomStyle] = useState('Tanga');
   const [bottomColor, setBottomColor] = useState('Schwarz');
-  const [bottomSize, setBottomSize] = useState('M');
+  const [bottomSize, setBottomSize] = useState('L');
+
+  const isOOS = (style, color, size) => OUT_OF_STOCK.has(`${style}-${color}-${size}`);
+
+  const handleBottomStyleChange = (style) => {
+    setBottomStyle(style);
+    if (isOOS(style, bottomColor, bottomSize)) setBottomSize('L');
+  };
+
+  const handleBottomColorChange = (color) => {
+    setBottomColor(color);
+    if (isOOS(bottomStyle, color, bottomSize)) setBottomSize('L');
+  };
 
   const handleCheckout = () => {
     const leggingId = LEGGINGS_VARIANTS[setColor][leggingsSize];
@@ -235,7 +252,7 @@ const ProductSelector = () => {
                     {['Tanga', 'Slip'].map(style => (
                       <button
                         key={style}
-                        onClick={() => setBottomStyle(style)}
+                        onClick={() => handleBottomStyleChange(style)}
                         className={`flex-1 py-3 font-bold rounded-lg border transition-colors ${bottomStyle === style ? 'bg-text text-white border-text' : 'bg-transparent text-text border-text/20 hover:border-text/50 hover:bg-background/50'}`}
                       >
                         {style}
@@ -248,7 +265,7 @@ const ProductSelector = () => {
                     {['Schwarz', 'Beige'].map(c => (
                       <button
                         key={c}
-                        onClick={() => setBottomColor(c)}
+                        onClick={() => handleBottomColorChange(c)}
                         className={`flex-1 py-3 font-bold rounded-lg border transition-colors flex items-center justify-center gap-2 ${bottomColor === c ? 'bg-text text-white border-text' : 'bg-transparent text-text border-text/20 hover:border-text/50 hover:bg-background/50'}`}
                       >
                         <span className="w-3 h-3 rounded-full" style={{ backgroundColor: c === 'Schwarz' ? '#1A1A1A' : '#D4C4B7' }}></span>
@@ -262,15 +279,19 @@ const ProductSelector = () => {
                     <button onClick={() => setIsSizeGuideOpen(true)} className="text-sm font-medium text-accent underline hover:text-accent/80 transition-colors">Größentabelle</button>
                   </div>
                   <div className="flex gap-3 mb-10">
-                    {['S', 'M', 'L', 'XL'].map(size => (
+                    {['S', 'M', 'L', 'XL'].map(size => {
+                      const oos = isOOS(bottomStyle, bottomColor, size);
+                      return (
                       <button
                         key={size}
-                        onClick={() => setBottomSize(size)}
-                        className={`flex-1 py-3 font-mono rounded-lg border transition-colors ${bottomSize === size ? 'bg-text text-white border-text' : 'bg-transparent text-text border-text/20 hover:border-text/50 hover:bg-background/50'}`}
+                        onClick={() => !oos && setBottomSize(size)}
+                        disabled={oos}
+                        className={`flex-1 py-3 font-mono rounded-lg border transition-colors relative ${oos ? 'opacity-40 cursor-not-allowed border-text/10 text-text/40' : bottomSize === size ? 'bg-text text-white border-text' : 'bg-transparent text-text border-text/20 hover:border-text/50 hover:bg-background/50'}`}
                       >
                         {size}
                       </button>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   <div className="flex gap-4">
