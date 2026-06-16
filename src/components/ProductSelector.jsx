@@ -24,10 +24,12 @@ const SLIP_VARIANTS = {
 };
 
 const SHAKER_ID = '56877036208393'; // Pink Shaker
+const DISCOUNT_CODE = '9P3WBSF86FX4';
 
 const OUT_OF_STOCK = new Set([
   'Tanga-Schwarz-S',
   'Tanga-Schwarz-M',
+  'Tanga-Schwarz-L',
 ]);
 
 const SizeGuideModal = ({ isOpen, onClose }) => {
@@ -106,18 +108,21 @@ const ProductSelector = () => {
   // State for Step 2
   const [bottomStyle, setBottomStyle] = useState('Tanga');
   const [bottomColor, setBottomColor] = useState('Schwarz');
-  const [bottomSize, setBottomSize] = useState('L');
+  const [bottomSize, setBottomSize] = useState('XL');
 
   const isOOS = (style, color, size) => OUT_OF_STOCK.has(`${style}-${color}-${size}`);
 
+  const firstAvailableSize = (style, color) =>
+    ['S', 'M', 'L', 'XL'].find(size => !isOOS(style, color, size)) || 'S';
+
   const handleBottomStyleChange = (style) => {
     setBottomStyle(style);
-    if (isOOS(style, bottomColor, bottomSize)) setBottomSize('L');
+    if (isOOS(style, bottomColor, bottomSize)) setBottomSize(firstAvailableSize(style, bottomColor));
   };
 
   const handleBottomColorChange = (color) => {
     setBottomColor(color);
-    if (isOOS(bottomStyle, color, bottomSize)) setBottomSize('L');
+    if (isOOS(bottomStyle, color, bottomSize)) setBottomSize(firstAvailableSize(bottomStyle, color));
   };
 
   const handleCheckout = () => {
@@ -128,7 +133,7 @@ const ProductSelector = () => {
     if (bottomStyle === 'Tanga') bottomId = TANGA_VARIANTS[bottomColor][bottomSize];
     else bottomId = SLIP_VARIANTS[bottomColor][bottomSize];
 
-    const checkoutUrl = `https://nosheer.de/cart/${leggingId}:1,${topId}:1,${bottomId}:1,${SHAKER_ID}:1`;
+    const checkoutUrl = `https://nosheer.de/cart/${leggingId}:1,${topId}:1,${bottomId}:1,${SHAKER_ID}:1?discount=${DISCOUNT_CODE}`;
     window.location.href = checkoutUrl;
   };
 
