@@ -152,7 +152,7 @@ const ProductSelector = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-block px-4 py-2 bg-accent/10 text-accent font-bold rounded-full mb-4">
-            Angebot: Spare 29%
+            🔥 29% Sparen - Code wird im Checkout angewandt 🔥
           </div>
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-text mb-4">
             Stelle dein Bundle zusammen
