@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 const Hero = () => {
+  const markerRef = useRef(null);
+
+  useEffect(() => {
+    if (!markerRef.current) return;
+    const path = markerRef.current.querySelector('path');
+    const length = path.getTotalLength();
+    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+    gsap.to(path, {
+      strokeDashoffset: 0,
+      duration: 0.8,
+      delay: 0.6,
+      ease: 'power2.inOut',
+    });
+  }, []);
+
   return (
     <section className="relative w-full min-h-[90vh] bg-background flex flex-col justify-center items-center text-center px-4 py-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -26,7 +42,26 @@ const Hero = () => {
         </h1>
         
         <p className="text-lg md:text-xl text-text/80 font-body mb-10 max-w-2xl">
-          Das "Zweite-Haut-Gefühl" für absolutes Selbstbewusstsein im Alltag und beim Training. Ohne Camel-Toe. Ohne Abdrücke.
+          Das{' '}
+          <span className="relative inline-block whitespace-nowrap">
+            <span className="relative z-10">"Zweite-Haut-Gefühl"</span>
+            <svg
+              ref={markerRef}
+              viewBox="0 0 220 24"
+              preserveAspectRatio="none"
+              className="absolute left-0 top-1/2 w-full h-[1.4em] -translate-y-1/2 z-0 pointer-events-none"
+            >
+              <path
+                d="M4 16 C 40 6, 80 4, 110 9 C 140 14, 180 16, 216 8"
+                fill="none"
+                stroke="#FACC15"
+                strokeWidth="14"
+                strokeLinecap="round"
+                opacity="0.55"
+              />
+            </svg>
+          </span>{' '}
+          für absolutes Selbstbewusstsein im Alltag und beim Training. Ohne Camel-Toe. Ohne Abdrücke.
         </p>
         
         <a href="#bundle-selector" className="bg-accent text-white font-medium text-lg px-8 py-4 rounded-full shadow-lg hover:bg-accent/90 transition-all transform hover:scale-105">
