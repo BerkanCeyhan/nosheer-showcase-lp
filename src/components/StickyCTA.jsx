@@ -71,7 +71,7 @@ const StickyCTA = () => {
       
       {/* Banner Tape */}
       <div className="bg-[#1A1A1A] text-[#FFE800] text-center py-1 text-xs font-bold tracking-widest uppercase">
-        🔥 29% Sparen mit Code: NEW 🔥
+        🔥 29% Sparen - Code wird im Checkout angewandt 🔥
       </div>
     </div>
   );

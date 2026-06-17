@@ -47,15 +47,15 @@ const Hero = () => {
             <span className="relative z-10">"Zweite-Haut-Gefühl"</span>
             <svg
               ref={markerRef}
-              viewBox="0 0 220 24"
+              viewBox="0 0 220 20"
               preserveAspectRatio="none"
-              className="absolute left-0 top-1/2 w-full h-[1.4em] -translate-y-1/2 z-0 pointer-events-none"
+              className="absolute -left-1 top-1/2 w-[calc(100%+8px)] h-[1.2em] -translate-y-1/2 z-0 pointer-events-none"
             >
               <path
-                d="M4 16 C 40 6, 80 4, 110 9 C 140 14, 180 16, 216 8"
+                d="M3 13 C 55 9, 110 8, 165 10 C 185 11, 205 12, 217 10"
                 fill="none"
                 stroke="#FACC15"
-                strokeWidth="14"
+                strokeWidth="12"
                 strokeLinecap="round"
                 opacity="0.55"
               />
