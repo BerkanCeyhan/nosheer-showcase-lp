@@ -46,7 +46,7 @@ const StickyCTA = () => {
              <img src="./images/Bild_Anti_Cameltoe_Tanga_Schwarz.png" className="w-full h-full object-cover" alt="Nosheer Bundle" />
           </div>
           <div>
-            <div className="font-bold font-heading text-text leading-tight">NOSHEER Bestseller Bundle</div>
+            <div className="font-bold font-heading text-text leading-tight">NOSHEER Anti-Cameltoe Set</div>
             <div className="flex items-center gap-1 text-accent text-xs">
                <span className="font-bold">★★★★★</span> <span className="text-text/60 ml-1">4.8 (4.178+)</span>
             </div>
@@ -56,14 +56,14 @@ const StickyCTA = () => {
         {/* Right Side */}
         <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">
           <div className="text-right flex flex-col items-end justify-center whitespace-nowrap">
-            <span className="text-[10px] md:text-xs text-text/50 line-through leading-none">84,95 €</span>
-            <span className="font-bold text-base md:text-xl text-text leading-tight mt-0.5">59,95 €</span>
+            <span className="text-[10px] md:text-xs text-text/50 line-through leading-none">53,70 €</span>
+            <span className="font-bold text-base md:text-xl text-text leading-tight mt-0.5">39,90 €</span>
           </div>
           <a 
             href="#bundle-selector" 
             className="bg-accent hover:bg-accent/90 text-white font-bold py-2.5 md:py-3.5 px-4 md:px-6 rounded-xl shadow-lg transition-transform hover:scale-105 text-[13px] md:text-base whitespace-nowrap"
           >
-            Stelle dein Bundle zusammen
+            Jetzt Set sichern
           </a>
         </div>
 
@@ -71,7 +71,7 @@ const StickyCTA = () => {
       
       {/* Banner Tape */}
       <div className="bg-[#1A1A1A] text-[#FFE800] text-center py-1 text-xs font-bold tracking-widest uppercase">
-        🔥 29% Sparen - Code wird im Checkout angewandt 🔥
+        🎁 Gratis Shaker + Gratis Versand zu jeder Bestellung 🎁
       </div>
     </div>
   );

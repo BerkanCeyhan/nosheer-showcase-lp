@@ -39,7 +39,7 @@ const FooterCTA = () => {
         </h2>
 
         <p className="text-xl text-white/70 mb-10 max-w-xl mx-auto">
-          Nutze jetzt deine Chance und sichere dir dein Bundle inklusive <span className="text-accent font-bold">2 Gratis-Geschenken</span>, bevor wir ausverkauft sind.
+          Sichere dir jetzt dein Anti-Cameltoe Set inklusive <span className="text-accent font-bold">Gratis Shaker & Gratis Versand</span>, bevor wir ausverkauft sind.
         </p>
 
         <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl inline-block mb-10">
@@ -53,7 +53,7 @@ const FooterCTA = () => {
 
         <div>
           <a href="#bundle-selector" className="inline-block bg-accent hover:bg-accent/90 text-white text-xl md:text-2xl font-bold px-12 py-5 rounded-full shadow-2xl transition-transform hover:scale-105">
-            Jetzt Bundle Konfigurieren
+            Jetzt Set sichern
           </a>
         </div>
 

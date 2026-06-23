@@ -4,6 +4,7 @@ import Agitation from './components/Agitation';
 import Mechanism from './components/Mechanism';
 import SocialProof from './components/SocialProof';
 import ProductSelector from './components/ProductSelector';
+import VideoGallery from './components/VideoGallery';
 import ObjectionCrusher from './components/ObjectionCrusher';
 import Technology from './components/Technology';
 import Guarantee from './components/Guarantee';
@@ -14,10 +15,11 @@ function App() {
   return (
     <div className="relative w-full overflow-hidden">
       <Hero />
-      <Agitation />
       <Mechanism />
-      <SocialProof />
       <ProductSelector />
+      <VideoGallery />
+      <SocialProof />
+      <Agitation />
       <ObjectionCrusher />
       <Technology />
       <Guarantee />
