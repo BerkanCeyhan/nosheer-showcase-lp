@@ -71,7 +71,7 @@ const StickyCTA = () => {
       
       {/* Banner Tape */}
       <div className="bg-[#1A1A1A] text-[#FFE800] text-center py-1 text-xs font-bold tracking-widest uppercase">
-        🎁 Gratis Shaker + Gratis Versand zu jeder Bestellung 🎁
+        🎁 Gratis Shaker zu jeder Bestellung + Gratis Versand ab 35 € 🎁
       </div>
     </div>
   );

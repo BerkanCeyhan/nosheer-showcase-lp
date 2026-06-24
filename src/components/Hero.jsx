@@ -65,7 +65,7 @@ const Hero = () => {
         </p>
         
         <a href="#bundle-selector" className="bg-accent text-white font-medium text-lg px-8 py-4 rounded-full shadow-lg hover:bg-accent/90 transition-all transform hover:scale-105">
-          Jetzt Set sichern – Gratis Shaker & Versand
+          Jetzt Set sichern – Gratis Shaker & Versand ab 35 €
         </a>
       </div>
     </section>

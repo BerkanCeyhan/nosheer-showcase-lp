@@ -39,7 +39,7 @@ const FooterCTA = () => {
         </h2>
 
         <p className="text-xl text-white/70 mb-10 max-w-xl mx-auto">
-          Sichere dir jetzt dein Anti-Cameltoe Set inklusive <span className="text-accent font-bold">Gratis Shaker & Gratis Versand</span>, bevor wir ausverkauft sind.
+          Sichere dir jetzt dein Anti-Cameltoe Set inklusive <span className="text-accent font-bold">Gratis Shaker</span> – <span className="text-accent font-bold">Gratis Versand ab 35 €</span>, bevor wir ausverkauft sind.
         </p>
 
         <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl inline-block mb-10">

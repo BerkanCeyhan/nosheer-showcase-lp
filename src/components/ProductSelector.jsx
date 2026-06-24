@@ -145,6 +145,8 @@ const ProductSelector = () => {
 
   const packPrice = PACK_TIERS[packQty].price;
   const total = packPrice + (addSet ? UPSELL_PRICE : 0);
+  // Gratis Versand erst ab 3er-Set (ab 35 €); Einzelpack zzgl. Versand
+  const freeShipping = packQty >= 3;
   const packAnchor = packQty * SINGLE_PRICE;
   // Gesamt-Streichwert (für "Du sparst X%"): Unterwäsche-UVP + Set-UVP (falls gewählt) + Shaker-Wert
   const fullValue = packAnchor + (addSet ? UPSELL_ANCHOR : 0) + SHAKER_VALUE;
@@ -186,7 +188,7 @@ const ProductSelector = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-block px-4 py-2 bg-accent/10 text-accent font-bold rounded-full mb-4">
-            🎁 Gratis Shaker + Gratis Versand zu jeder Bestellung 🎁
+            🎁 Gratis Shaker zu jeder Bestellung + Gratis Versand ab 3er-Set 🎁
           </div>
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-text mb-4">
             Dein Anti-Cameltoe Set
@@ -300,7 +302,7 @@ const ProductSelector = () => {
                   </div>
 
                   <div className="flex items-center gap-2 text-sm text-green-700 bg-green-50 border border-green-200/60 rounded-lg px-3 py-2 mb-8">
-                    <Check size={16} strokeWidth={3} /> Gratis Shaker & Gratis Versand inklusive
+                    <Check size={16} strokeWidth={3} /> {freeShipping ? 'Gratis Shaker & Gratis Versand inklusive' : 'Gratis Shaker inklusive · Gratis Versand ab 3er-Set'}
                   </div>
 
                   <button
@@ -474,6 +476,16 @@ const ProductSelector = () => {
                     <div className="text-green-600 font-bold uppercase text-sm">Gratis</div>
                   </div>
                 </div>
+
+                {/* Item 4: Versand */}
+                <div className="flex justify-between items-center px-4 py-3 text-sm">
+                  <span className="text-text/70 font-medium">Versand</span>
+                  {freeShipping ? (
+                    <span className="text-green-600 font-bold uppercase">Gratis</span>
+                  ) : (
+                    <span className="text-text/60">zzgl. Versand · gratis ab 3er-Set</span>
+                  )}
+                </div>
               </div>
 
               <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-3 border-t border-text/10 pt-6 mb-8 mt-8">
@@ -492,7 +504,7 @@ const ProductSelector = () => {
                   className="w-full py-4 sm:py-5 bg-accent text-white font-bold rounded-2xl hover:bg-accent/90 transition-transform transform hover:scale-[1.02] shadow-xl shadow-accent/20 flex flex-col items-center justify-center leading-tight px-2"
                 >
                   <span className="mb-1 text-lg sm:text-xl whitespace-nowrap">Jetzt sicher zur Kasse →</span>
-                  <span className="text-[10px] sm:text-xs font-normal text-white/80 whitespace-nowrap">inkl. Gratis Versand in 1-3 Tagen</span>
+                  <span className="text-[10px] sm:text-xs font-normal text-white/80 whitespace-nowrap">{freeShipping ? 'inkl. Gratis Versand in 1-3 Tagen' : 'Lieferung in 1-3 Tagen · zzgl. Versand'}</span>
                 </button>
                 <button onClick={() => setStep(1)} className="text-text/50 hover:text-text font-medium text-sm text-center transition-colors">
                   Bestellung nochmal bearbeiten
