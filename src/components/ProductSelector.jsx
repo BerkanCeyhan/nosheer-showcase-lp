@@ -46,7 +46,7 @@ const SHAKER_VALUE = 9.90;
 
 const eur = (n) => n.toFixed(2).replace('.', ',') + ' €';
 
-const OUT_OF_STOCK = new Set([]);
+const OUT_OF_STOCK = new Set(['Tanga-Schwarz-M', 'Tanga-Schwarz-L']);
 
 const SizeGuideModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -120,7 +120,7 @@ const ProductSelector = () => {
   const [packQty, setPackQty] = useState(3);
   const [bottomStyle, setBottomStyle] = useState('Tanga');
   const [bottomColor, setBottomColor] = useState('Schwarz');
-  const [bottomSize, setBottomSize] = useState('M');
+  const [bottomSize, setBottomSize] = useState('S'); // M/L bei Schwarz-Tanga ausverkauft → verfügbaren Default wählen
 
   // Step 2: Optionaler Upsell Performance Set
   const [addSet, setAddSet] = useState(false);
@@ -148,8 +148,8 @@ const ProductSelector = () => {
   // Gratis Versand erst ab 3er-Set (ab 35 €); Einzelpack zzgl. Versand
   const freeShipping = packQty >= 3;
   const packAnchor = packQty * SINGLE_PRICE;
-  // Gesamt-Streichwert (für "Du sparst X%"): Unterwäsche-UVP + Set-UVP (falls gewählt) + Shaker-Wert
-  const fullValue = packAnchor + (addSet ? UPSELL_ANCHOR : 0) + SHAKER_VALUE;
+  // Gesamt-Streichwert (für "Du sparst X%"): Unterwäsche-UVP + Set-UVP + Shaker-Wert (Shaker nur mit Set)
+  const fullValue = packAnchor + (addSet ? UPSELL_ANCHOR + SHAKER_VALUE : 0);
   const savingsPct = Math.round((1 - total / fullValue) * 100);
 
   const handleCheckout = () => {
@@ -157,10 +157,11 @@ const ProductSelector = () => {
     if (bottomStyle === 'Tanga') bottomId = TANGA_VARIANTS[bottomColor][bottomSize];
     else bottomId = SLIP_VARIANTS[bottomColor][bottomSize];
 
-    const parts = [`${bottomId}:${packQty}`, `${SHAKER_ID}:1`];
+    const parts = [`${bottomId}:${packQty}`];
     if (addSet) {
       parts.push(`${LEGGINGS_VARIANTS[setColor][leggingsSize]}:1`);
       parts.push(`${TOP_VARIANTS[setColor][topSize]}:1`);
+      parts.push(`${SHAKER_ID}:1`); // Gratis Shaker nur mit Performance Set
     }
 
     const checkoutUrl = `https://nosheer.de/cart/${parts.join(',')}?discount=${DISCOUNT_CODE}`;
@@ -188,7 +189,7 @@ const ProductSelector = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-block px-4 py-2 bg-accent/10 text-accent font-bold rounded-full mb-4">
-            🎁 Gratis Shaker zu jeder Bestellung + Gratis Versand ab 3er-Set 🎁
+            🎁 Gratis Shaker zum Performance Set + Gratis Versand ab 3er-Set 🎁
           </div>
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-text mb-4">
             Dein Anti-Cameltoe Set
@@ -302,7 +303,7 @@ const ProductSelector = () => {
                   </div>
 
                   <div className="flex items-center gap-2 text-sm text-green-700 bg-green-50 border border-green-200/60 rounded-lg px-3 py-2 mb-8">
-                    <Check size={16} strokeWidth={3} /> {freeShipping ? 'Gratis Shaker & Gratis Versand inklusive' : 'Gratis Shaker inklusive · Gratis Versand ab 3er-Set'}
+                    <Check size={16} strokeWidth={3} /> {freeShipping ? 'Gratis Versand inklusive' : 'Gratis Versand ab 3er-Set'}
                   </div>
 
                   <button
@@ -320,8 +321,8 @@ const ProductSelector = () => {
           {step === 2 && (
             <div className="animate-in fade-in slide-in-from-right-8 duration-300">
               <div className="inline-block bg-accent/10 text-accent font-bold px-3 py-1 rounded-md mb-4 text-sm uppercase tracking-wide">Optional · Nur jetzt</div>
-              <h3 className="text-2xl font-heading font-bold mb-2">2. Performance Set dazu?</h3>
-              <p className="text-text/70 mb-8">Leggings + Top im perfekten Zweite-Haut-Sitz – einmalig <span className="font-bold text-text">{eur(UPSELL_PRICE)}</span> statt <span className="line-through">{eur(UPSELL_ANCHOR)}</span>.</p>
+              <h3 className="text-2xl font-heading font-bold mb-2">2. Performance Set + Gratis Shaker dazu?</h3>
+              <p className="text-text/70 mb-8">Leggings + Top im perfekten Zweite-Haut-Sitz – einmalig <span className="font-bold text-text">{eur(UPSELL_PRICE)}</span> statt <span className="line-through">{eur(UPSELL_ANCHOR)}</span>. Inklusive <span className="font-bold text-text">Gratis Shaker</span> (Wert {eur(SHAKER_VALUE)}).</p>
 
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="w-full md:w-1/2">
@@ -339,7 +340,7 @@ const ProductSelector = () => {
                         <span className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${addSet ? 'border-accent bg-accent' : 'border-text/30'}`}>
                           {addSet && <Check size={12} className="text-white" strokeWidth={3} />}
                         </span>
-                        <span className="font-bold">Ja, Set hinzufügen</span>
+                        <span className="font-bold">Ja, Set + Gratis Shaker</span>
                       </div>
                       <span className="font-bold text-accent">+{eur(UPSELL_PRICE)}</span>
                     </button>
@@ -457,7 +458,8 @@ const ProductSelector = () => {
                   </div>
                 )}
 
-                {/* Item 3: Gratis Shaker */}
+                {/* Item 3: Gratis Shaker – nur mit Performance Set */}
+                {addSet && (
                 <div className="flex justify-between items-center p-4 bg-green-50/50 border border-green-200/50 rounded-xl">
                   <div className="flex gap-4 items-center">
                     <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-text/10 bg-white p-2 shrink-0 flex items-center justify-center">
@@ -476,6 +478,7 @@ const ProductSelector = () => {
                     <div className="text-green-600 font-bold uppercase text-sm">Gratis</div>
                   </div>
                 </div>
+                )}
 
                 {/* Item 4: Versand */}
                 <div className="flex justify-between items-center px-4 py-3 text-sm">
