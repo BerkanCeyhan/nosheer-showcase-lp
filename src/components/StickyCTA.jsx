@@ -57,7 +57,7 @@ const StickyCTA = () => {
         <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">
           <div className="text-right flex flex-col items-end justify-center whitespace-nowrap">
             <span className="text-[10px] md:text-xs text-text/50 line-through leading-none">53,70 €</span>
-            <span className="font-bold text-base md:text-xl text-text leading-tight mt-0.5">39,90 €</span>
+            <span className="font-bold text-base md:text-xl text-text leading-tight mt-0.5">36,90 €</span>
           </div>
           <a 
             href="#bundle-selector" 

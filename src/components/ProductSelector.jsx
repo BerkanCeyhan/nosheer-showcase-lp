@@ -34,13 +34,13 @@ const DISCOUNT_CODE = '9P3WBSF86FX4';
 const SINGLE_PRICE = 17.90;
 const PACK_TIERS = {
   1: { qty: 1, price: 17.90, badge: null },
-  3: { qty: 3, price: 39.90, badge: 'Beliebteste' },
-  5: { qty: 5, price: 59.90, badge: 'Bester Preis' },
+  3: { qty: 3, price: 36.90, badge: 'Beliebteste' },
+  5: { qty: 5, price: 53.90, badge: 'Bester Preis' },
 };
 
 // Optionaler Upsell: Performance Set (Leggings + Top)
 const UPSELL_PRICE = 39.00;
-const UPSELL_ANCHOR = 49.95;
+const UPSELL_ANCHOR = 59.90; // Einzel-UVP: Leggings 34,95 + Top 24,95
 
 const SHAKER_VALUE = 9.90;
 
